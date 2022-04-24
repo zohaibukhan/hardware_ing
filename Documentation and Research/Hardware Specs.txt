@@ -1,0 +1,79 @@
+Things to Calculate in Arduino Nano Code (For One Channel).
+-- Hardware Bound measurements - Need the whole circuit simulation around Arduino UNO
+1. Measure Channel Current through Shunt
+2. Measure Main Voltage through Shunt
+3. Calculate Power through Channel
+4. Monitor Current Overload through Channel
+9. Do channel switching (ON/OFF) when requested from the user through the app
+10. Recognize Live/Generator input from the user via Web/Bluetooth
+
+-- Can be simulated , not extensive channel hardware required
+-- Checklist of the functions (Check them off one by one)
+11. Do Phase changes when requested from the user through the app
+12. Send and Receive commands to/from the IOT Cloud Database
+13. Send and Receive Data to/from the IOT Cloud Database
+14. Maintain Date/Time tagging of the channels
+15. Capable of reconnecting to Web incase of disconnected
+16. When bootup, immediately start tracking the time from the Web OR
+	Use a simple RTC Clock module with the Nano 33 IOT.
+17. Monitor Battery Status if required and send it also to the Webserver
+18. Monitor Temperature of the Board and send it to the Webserver
+19. Status of the Channels to send along with Power of the Channel
+20. Board working Status is important for Dashboard. Need to monitor continously the working.
+	Raise alarm if board temperature goes high or functionality is faulty in any of the channels
+	
+Notes:
+Save Power on Arduino (Use Sleep Mode on the Controller) - Wake up when a command is received from the
+User App frontend
+
+Important Links to Consider
+https://github.com/ostaquet/Arduino-Nano-33-IoT-Ultimate-Guide/blob/master/SavePowerRTC.md
+https://learn.adafruit.com/adafruit-ds3231-precision-rtc-breakout/overview
+https://lastminuteengineers.com/esp8266-ntp-server-date-time-tutorial/
+https://lastminuteengineers.com/esp8266-dht11-dht22-web-server-tutorial/
+https://www.robsreviews.net/leviton-smart-load-centers-breaker-panel-for-remodeling-or-updating-homes/
+https://www.leviton.com/en/products/residential/load-centers/the-leviton-smart-load-center
+
+https://www.leviton.com/en/docs/Load-Center-FAQs.pdf
+https://www.leviton.com/en/docs/Leviton_AFCI_GFCI_Devices_Brochure.pdf
+https://www.ebay.de/itm/283256186808
+
+
+Use Arduino UNO IOT 33 Simulator/Emulator to Write for 4 Channels and send the data to web
+User Proteus VSM if Possible. Use the Arduino which is available to perform at least all internet functionality
+(Make Circuit around 
+MVP Arduino Nano:
+4 Channels Current Input
+4 Channels Controlling Output
+1 Channel for Voltage Input for all Channels
+Reading CS with SPI for all Channels
+
+Maximum Arduino Nano IOT33
+Total = 33
+1 Pin for Voltage Input (Single Phase)
+Maximum can accomodate 8 Channels Only
+8 Channels Output
+We can use the ADC Pins only for the output switching
+
+
+
+Order Components only from Germany
+1. Similar to the components that are used in the circuit
+2. Reliability from Texas Instruments, Analog Devices, STM etc.
+3. Do not buy components from China
+4. Arduinos as well
+
+
+Arduino UNO Notes
+1. Maximum Current draw per pin 5mA (For driving LEDs, for switching OFF Channels)
+https://forum.arduino.cc/t/nano-33-iot-vin-voltage-range/599957/19
+https://www.electronics-tutorials.ws/blog/relay-switch-circuit.html
+
+https://www.electronics-tutorials.ws/power/triac.html
+While selecting TRIAC and Optocoupler combination, take into account the type of loads
+1. Inductive
+2. Reactive
+3. Capactive
+
+Generator Switch Option - PIN dedicate monitor generator ON or NOT
+Only Switching allowed to the Customer
