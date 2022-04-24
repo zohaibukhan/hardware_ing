@@ -1,0 +1,11 @@
+
+how to checkout your branch
+
+1. Install Git for Windows
+2. Select a local directory in your PC/Laptop
+3. Right Click and Click Git bash here
+Commmands to type after Git bash terminal opens
+git clone https://github.com/zohaibukhan/hardware_ing.git
+git checkout samreenwp
+
+use always git push or git pull to push or pull changes from the repository
